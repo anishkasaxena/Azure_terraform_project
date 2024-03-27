@@ -3,12 +3,8 @@ name: "Apply_TF_Plan"
 on:
   workflow_call:
     inputs:
-      path:
-        description: 'Specifies the path of the root terraform module.'
-        required: true
-        type: string
       tf_version:
-        description: 'Specifies version of Terraform to use. e.g: 1.1.0 Default=latest.'
+        description: 'Default=latest.'
         required: false
         type: string
         default: latest
@@ -17,10 +13,6 @@ on:
         required: false
         type: string
         default: null
-      tf_vars_file:
-        description: 'Specifies the Terraform TFVARS file.'
-        required: true
-        type: string
     secrets:
       cli_config_credentials_token:
         description: 'cli config credentials token'

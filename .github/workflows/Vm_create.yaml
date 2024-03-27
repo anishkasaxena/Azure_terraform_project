@@ -24,7 +24,7 @@ jobs:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
   Plan_Uat:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/Uat'
     uses: anishkasaxena/Azure_terraform_project/.github/workflows/tf_plan.yaml@Uat
     with:
       # path: IAMRoles

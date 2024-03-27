@@ -7,8 +7,8 @@ jobs:
     if: github.ref == 'refs/heads/Dev'
     uses: anishkasaxena/Azure_terraform_project/.github/workflows/tf_plan.yaml@Dev
     with:
-      path: IAMRoles
-      tf_rs_file: dev.tfvarsva
+      # path: IAMRoles
+      # tf_rs_file: dev.tfvarsva
       gh_environment: dev
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
@@ -17,8 +17,8 @@ jobs:
     needs: Plan_Dev
     uses: anishkasaxena/Azure_terraform_project/.github/workflows/tf_plan.yaml@Dev
     with:
-      path: IAMRoles
-      tf_vars_file: dev.tfvars
+      # path: IAMRoles
+      # tf_vars_file: dev.tfvars
       gh_environment: dev
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
@@ -27,8 +27,8 @@ jobs:
     if: github.ref == 'refs/heads/Uat'
     uses: anishkasaxena/Azure_terraform_project/.github/workflows/tf_plan.yaml@Uat
     with:
-      path: IAMRoles
-      tf_vars_file: uat.tfvars
+      # path: IAMRoles
+      # tf_vars_file: uat.tfvars
       gh_environment: uat
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
@@ -37,8 +37,8 @@ jobs:
     needs: Plan_Uat
     uses: anishkasaxena/Azure_terraform_project/.github/workflows/tf_plan.yaml@Uat
     with:
-      path: IAMRoles
-      tf_vars_file: uat.tfvars
+      # path: IAMRoles
+      # tf_vars_file: uat.tfvars
       gh_environment: uat
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}

@@ -1,44 +1,44 @@
-name: "01_IAMRoles"
+name: "VM Create"
 on:
   workflow_dispatch:
 
 jobs:
   Plan_Dev:
     if: github.ref == 'refs/heads/Dev'
-    uses: azureProject/gitreusableflows/.github/workflows/tf_plan.yml@Dev
+    uses: anishkasaxena/Azure_terraform_project/.github/workflows/tf_plan.yaml@Dev
     with:
-      path: IAMRoles
-      tf_rs_file: dev.tfvarsva
+      # path: IAMRoles
+      # tf_rs_file: dev.tfvarsva
       gh_environment: dev
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
   Deploy_Dev:
     needs: Plan_Dev
-    uses: azureProject/gitreusableflows/.github/workflows/tf_plan.yml@Dev
+    uses: anishkasaxena/Azure_terraform_project/.github/workflows/tf_plan.yaml@Dev
     with:
-      path: IAMRoles
-      tf_vars_file: dev.tfvars
+      # path: IAMRoles
+      # tf_vars_file: dev.tfvars
       gh_environment: dev
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
   Plan_Uat:
     if: github.ref == 'refs/heads/main'
-    uses: azureProject/gitreusableflows/.github/workflows/tf_plan.yml@Uat
+    uses: anishkasaxena/Azure_terraform_project/.github/workflows/tf_plan.yaml@Uat
     with:
-      path: IAMRoles
-      tf_vars_file: uat.tfvars
+      # path: IAMRoles
+      # tf_vars_file: uat.tfvars
       gh_environment: uat
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
   Deploy_Uat:
     needs: Plan_Uat
-    uses: azureProject/gitreusableflows/.github/workflows/tf_plan.yml@Uat
+    uses: anishkasaxena/Azure_terraform_project/.github/workflows/tf_plan.yaml@Uat
     with:
-      path: IAMRoles
-      tf_vars_file: uat.tfvars
+      # path: IAMRoles
+      # tf_vars_file: uat.tfvars
       gh_environment: uat
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
